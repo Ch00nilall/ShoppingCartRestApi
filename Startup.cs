@@ -136,7 +136,8 @@ namespace ShoppingCartRestAPI
                 app.UseSwagger();
                 app.UseSwaggerUI(options =>
                 {
-                    options.SwaggerEndpoint("/swagger/v1/swagger.json", "Shopping Cart API v1");
+                    options.SwaggerEndpoint("../swagger/v1/swagger.json", "Shopping Cart API v1");
+                    
                     options.OAuthClientId(Configuration["Authentication:Google:ClientId"]);
                     options.OAuthClientSecret(Configuration["Authentication:Google:ClientSecret"]);
                     options.OAuthAppName("Shopping Cart");

@@ -149,7 +149,7 @@ namespace ShoppingCartRestAPI
             app.UseAuthentication();
             app.UseAuthorization();
             //app.UseIpRateLimiting();
-           // context.Database.Migrate();
+            context.Database.Migrate();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();

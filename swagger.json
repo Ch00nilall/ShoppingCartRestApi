@@ -721,7 +721,6 @@
 
 
 
-
 {
   "openapi": "3.0.1",
   "info": {
@@ -739,74 +738,10 @@
   },
   "servers": [
     {
-      "url": "https://example.com/api"
+      "url": "https://ch00nilall.github.io/ShoppingCartRestApi/"
     }
   ],
   "paths": {
-    "/api/cart/items/{itemId}": {
-      "put": {
-        "tags": [
-          "Cart"
-        ],
-        "parameters": [
-          {
-            "name": "itemId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CartItem"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CartItem"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/CartItem"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "Cart"
-        ],
-        "parameters": [
-          {
-            "name": "itemId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
     "/api/cart/items/{itemId}": {
       "put": {
         "tags": [
@@ -971,3 +906,4 @@
     }
   }
 }
+

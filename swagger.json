@@ -12,7 +12,7 @@
     }
   },
   "host": "ch00nilall.github.io/ShoppingCartRestApi",
-  //"basePath": "/v2",
+   "basePath": "/v1",
   "tags": [
     {
       "name": "pet",

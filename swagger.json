@@ -11,8 +11,8 @@
       "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
     }
   },
-  "host": "https://ch00nilall.github.io/ShoppingCartRestApi/",
-  "basePath": "/v2",
+  "host": "ch00nilall.github.io/ShoppingCartRestApi",
+  //"basePath": "/v2",
   "tags": [
     {
       "name": "pet",
@@ -192,11 +192,10 @@
     "/api/login/logout": {
       "get": {
         "tags": [ "Login" ],
-        "summary": "Find pet by ID",
-        "description": "Returns a single pet",
+        "summary": "Logs out current user",
+        "description": "",
         "operationId": "logout",
         "produces": [ "application/json", "application/xml" ],
-
         "responses": {
           "200": {
             "description": "successful operation",
@@ -206,46 +205,14 @@
           "404": { "description": "Pet not found" }
         },
         "security": [ { "api_key": [] } ]
-      },
-      "post": {
-        "tags": [ "pet" ],
-        "summary": "Updates a pet in the store with form data",
-        "description": "",
-        "operationId": "updatePetWithForm",
-        "consumes": [ "application/x-www-form-urlencoded" ],
-        "produces": [ "application/json", "application/xml" ],
-        "parameters": [
-          {
-            "name": "petId",
-            "in": "path",
-            "description": "ID of pet that needs to be updated",
-            "required": true,
-            "type": "integer",
-            "format": "int64"
-          },
-          {
-            "name": "name",
-            "in": "formData",
-            "description": "Updated name of the pet",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "status",
-            "in": "formData",
-            "description": "Updated status of the pet",
-            "required": false,
-            "type": "string"
-          }
-        ],
-        "responses": { "405": { "description": "Invalid input" } },
-        "security": [ { "petstore_auth": [ "write:pets", "read:pets" ] } ]
-      },
+      }
+    },
+    "/api/cart/items/{itemId}": {
       "delete": {
-        "tags": [ "pet" ],
-        "summary": "Deletes a pet",
+        "tags": [ "Cart" ],
+        "summary": "Deletes a item",
         "description": "",
-        "operationId": "deletePet",
+        "operationId": "DeleteCartItem",
         "produces": [ "application/json", "application/xml" ],
         "parameters": [
           {
@@ -255,42 +222,42 @@
             "type": "string"
           },
           {
-            "name": "petId",
+            "name": "itemId",
             "in": "path",
-            "description": "Pet id to delete",
+            "description": "Cart item to to delete",
             "required": true,
             "type": "integer",
-            "format": "int64"
+            "format": "int32"
           }
         ],
         "responses": {
           "400": { "description": "Invalid ID supplied" },
-          "404": { "description": "Pet not found" }
+          "404": { "description": "Item not found" }
         },
         "security": [ { "petstore_auth": [ "write:pets", "read:pets" ] } ]
       }
     },
-    "/store/order": {
+    "/api/cart/items": {
       "post": {
-        "tags": [ "store" ],
-        "summary": "Place an order for a pet",
+        "tags": [ "Cart" ],
+        "summary": "Place an order.",
         "description": "",
-        "operationId": "placeOrder",
+        "operationId": "CreateCartItem",
         "consumes": [ "application/json" ],
         "produces": [ "application/json", "application/xml" ],
         "parameters": [
           {
             "in": "body",
             "name": "body",
-            "description": "order placed for purchasing the pet",
+            "description": "order placed for new item.",
             "required": true,
-            "schema": { "$ref": "#/definitions/Order" }
+            "schema": { "$ref": "#/components/schemas/CartItem" }
           }
         ],
         "responses": {
           "200": {
             "description": "successful operation",
-            "schema": { "$ref": "#/definitions/Order" }
+            "schema": { "$ref": "#/components/schemas/CartItem" }
           },
           "400": { "description": "Invalid Order" }
         }

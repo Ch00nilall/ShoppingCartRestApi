@@ -380,12 +380,12 @@
         "security": [ { "api_key": [] } ]
       }
     },
-    "/user/login": {
+    "/login": {
       "get": {
         "tags": [ "user" ],
         "summary": "Logs user into the system",
         "description": "",
-        "operationId": "login",
+        "operationId": "Login",
         "produces": [ "application/json", "application/xml" ],
         "parameters": [
           {
@@ -394,7 +394,7 @@
             "description": "The user name for login",
             "required": true,
             "type": "string"
-          } 
+          }
         ],
         "responses": {
           "200": {
@@ -405,21 +405,21 @@
         }
       }
     },
-    "/api/login/logout": {
+    "/login/logout": {
       "get": {
         "tags": [ "user" ],
         "summary": "Logs out current logged in user session",
         "description": "",
-        "operationId": "logout",
+        "operationId": "Logout",
         "produces": [ "application/json", "application/xml" ],
         "parameters": [],
         "responses": { "default": { "description": "successful operation" } }
       }
     },
-    "/user": {
+    "/login/signin-google": {
       "post": {
         "tags": [ "user" ],
-        "summary": "Create user",
+        "summary": "sign in user",
         "description": "This can only be done by the logged in user.",
         "operationId": "createUser",
         "consumes": [ "application/json" ],
